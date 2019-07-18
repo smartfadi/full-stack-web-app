@@ -37,7 +37,7 @@ In the production mode, we will have only 1 server running. All the client side 
 
 ```bash
 # Clone the repository
-git clone https://github.com/smartfadi/full-stack-react-app.git
+git clone https://github.com/smartfadi/full-stack-web-app.git
 
 # Go inside the directory
 cd simple-react-full-stack
