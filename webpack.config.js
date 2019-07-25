@@ -5,7 +5,18 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const outputDirectory = 'dist';
 
 module.exports = {
-  entry: ['babel-polyfill', './src/client/index.js'],
+  mode: 'development',
+  devtool: 'inline-source-map',
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000, // How often check for changes (in milliseconds)
+  },
+  entry: [
+    'babel-polyfill',
+    // 'webpack-dev-server/client?http://127.0.0.0:3333/',
+    // 'webpack/hot/only-dev-server',
+    './src/client/index.js',
+  ],
   output: {
     path: path.join(__dirname, outputDirectory),
     filename: 'bundle.js',
@@ -36,14 +47,14 @@ module.exports = {
     port: 3000,
     open: true,
     proxy: {
-      '/api': 'http://localhost:8080',
+      '/api': 'http://localhost:3333',
     },
+    historyApiFallback: true,
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      favicon: './public/favicon.ico',
     }),
   ],
 };

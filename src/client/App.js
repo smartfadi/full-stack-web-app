@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './components/AppBar';
 import Routes from './components/Routes';
 
-export default class App extends Component {
+class App extends Component {
   // state = { username: null };
 
   // componentDidMount() {
@@ -20,3 +20,4 @@ export default class App extends Component {
     );
   }
 }
+export default App;
